@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '50766153-5ae10d1890b4c2498d85a8209'; // 🔐 встав свій ключ від Pixabay
+const API_KEY = '50766153-5ae10d1890b4c2498d85a8209'; // заміни на свій ключ
 const BASE_URL = 'https://pixabay.com/api/';
 
 export async function getImagesByQuery(query) {
@@ -12,11 +12,6 @@ export async function getImagesByQuery(query) {
     safesearch: true,
   };
 
-  try {
-    const response = await axios.get(BASE_URL, { params });
-    return response.data;
-  } catch (error) {
-    console.error('Pixabay API error:', error);
-    throw error;
-  }
+  const response = await axios.get(BASE_URL, { params });
+  return response.data;
 }
